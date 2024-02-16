@@ -73,6 +73,9 @@ XXX is a
 
 - Aleksander Morawski
 - Krzysztof Wesołek
+- Franek Krawczyk
+- Kamil Bandzwołek
+- Jakub Skwierawski
 
 ## License
 
