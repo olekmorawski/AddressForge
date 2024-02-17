@@ -37,8 +37,12 @@ function Landing() {
     return (
       <div className="app">
         <div className="bg">
-          <Header />
-        
+           <Header
+            account={account}
+            isLoading={isLoading}
+            handleConnect={handleConnect}
+            handleDisconnect={handleDisconnect}
+          />
         <main className="main-content">
           <div className="txt">
             <h2>Create unique contract address<br />on Ethereum</h2>
