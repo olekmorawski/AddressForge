@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Trade+Winds&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-$font-base: "Trade Wind", sans-serif;
-$font-alt: "Inter", serif;
+$font-base: "Trade Winds", sans-serif;
+$font-alt: "Inter", sans-serif;
 
 $app-primary-color: #7c3aed;
 $app-secondary-color: #a855f7;
@@ -11,21 +11,18 @@ $app-light-color: #e0e7ff;
 $app-dark-color: #431a9f;
 $app-white-color: #ffffff;
 
-// 9f6ee6 - 61c6cd
-// 431a9f
-
 .app {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $font-alt;
 
-  .bg{
+  .bg {
     position: relative;
     width: 100vw;
     background: linear-gradient(to right, #9f6ee6, #61c6cd);
   }
-  
+
   .header {
     background-color: $app-dark-color;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem; // Reduced padding to make the header less tall
     display: flex;
     justify-content: start;
     align-items: center;
@@ -34,29 +31,35 @@ $app-white-color: #ffffff;
     position: sticky;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid white;
-    h1 {
-      color: $app-white-color;
-      font-size: 2rem;
-      font-weight: 700;
-    }
-    .logo_container{
+
+    .logo_container {
       display: flex;
       align-items: center;
-      max-height: 112px;
-      max-width: 105;
+      max-height: 71px; // You can adjust this if the header is still too tall
+      max-width: 105px;
+      img{
+        max-width: 60px;
+        max-height: 60px;
+      }
     }
-    .app_title{
-      margin-left: 0.5rem; // Add some space between the logo and the title
+
+    .app_title {
+      font-family: $font-base; // Apply Trade Winds font to the app title
+      margin-left: 0.5rem; // Space between the logo and the title
       color: $app-white-color;
-      font-size: 1.5rem; // Adjusted font size to make the navbar thinner
-      font-weight: 700;
+      font-size: 3rem; // You can adjust this if the header is still too tall
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 0;
     }
+
     .wallet-button {
       margin-left: auto;
-      background-color: $app-white-color;
-      color: $app-primary-color;
-      padding: 0.5rem 1rem;
-      border-radius: 0.25rem;
+      background-color: white;
+      color: black;
+      padding: 15px 35px;
+      margin-right: 25px;
+      border: 1px solid black; // Thin black border
       font-weight: 600;
       cursor: pointer;
       &:hover {
@@ -64,29 +67,65 @@ $app-white-color: #ffffff;
       }
     }
   }
+}
+
   
-  .main-content {
-    padding: 2rem;
+.main-content {
+  display: flex; // Use flex to position text and button
+  flex-direction: column; // Stack them vertically
+  align-items: flex-start;
+   // Align items to the start of the container
+  padding: 2rem;
+  
+  .txt {
+    // Styles for the text container
     h2 {
       color: $app-white-color;
       font-size: 3rem;
       font-weight: 700;
+      margin-bottom: 0.5rem; // Space between title and paragraph
     }
     p {
-      color: $app-secondary-color;
-      margin: 1rem 0;
+      line-height: 42px;
+      font-size: 22px;
+      color: white;
+      margin-bottom: 2rem; // Space between paragraph and button
     }
+  }
+  .btnbox{
+    align-self: flex-end; // Align the button to the end of the container
+    margin-top: -3.5rem;
     .run-app-button {
-      background-color: $app-white-color;
-      color: $app-dark-color;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
+      background-color: white;
+      color: black; // Assuming $app-dark-color is black or a dark shade
+      padding: 1rem 2rem;
+      font-size: 1rem; // Adjust font size as needed
+      font-weight: bold;
+      border: 1px solid black; // Thin black border
+      border-radius: 0.5rem; // Adjust border radius as needed for rounded corners
       cursor: pointer;
+      transition: all 0.3s ease;
+      margin-right: 100px;
+      margin-bottom: 50px;
+      
+      // Adjust the box-shadow to create the 3D effect with purple shadow
+      box-shadow: 0 4px 6px rgba(102, 51, 153, 0.5); // This color is a semi-transparent purple
+      
       &:hover {
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        background-color: lighten($app-white-color, 5%); // Slightly lighter on hover
+        // Adjust the box-shadow to make it look like the button is being pressed
+        box-shadow: 0 2px 3px rgba(102, 51, 153, 0.5);
+      }
+      
+      &:active {
+        // Transform the button to look like it's being pressed
+        transform: translateY(2px);
+        // Less shadow when the button is active to simulate being pressed down
+        box-shadow: 0 2px 3px rgba(102, 51, 153, 0.3);
       }
     }
+  }
+
     .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -123,4 +162,3 @@ $app-white-color: #ffffff;
       font-weight: bold;
     }
   }
-}

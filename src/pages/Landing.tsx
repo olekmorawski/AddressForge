@@ -15,10 +15,13 @@ function Landing() {
         </header>
         
         <main className="main-content">
-          <h2>Create unique contract address on Ethereum</h2>
-          <p>Turn random string into customizable address utilizing Golem Network</p>
-          <button className="run-app-button">RUN THE APP</button>
-          
+          <div className="txt">
+            <h2>Create unique contract address<br />on Ethereum</h2>
+          <p>Turn random string into customizable<br />address utilizing Golem Network</p>
+          </div>
+          <div className="btnbox">
+            <button className="run-app-button">RUN THE APP</button>
+          </div>
           <div className="features">
             <FeatureBox 
               title="Branding"
