@@ -65,9 +65,6 @@ XXX is a
 
 1. Start the frontend development server: `npm run dev`
 2. Open your web browser and navigate to the provided Vite URL: `http://localhost:XXXX`
-3. For the backend, open a second terminal and start it by typing ing: `npm run start:backend`
-4. Switch your Metamask network to Mantle Testnet
-5. Get your testnet Mantle tokens - 'https://faucet.testnet.mantle.xyz'
 
 ## Contributors
 
