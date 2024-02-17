@@ -6,12 +6,16 @@ $app-light-color: #e0e7ff;
 $app-dark-color: #4c1d95;
 $app-white-color: #ffffff;
 
-// .bg{
-
-// }
+// 9f6ee6 - 61c6cd
 
 .app {
   font-family: 'Open Sans', sans-serif;
+
+  .bg{
+    position: relative;
+    width: 100vw;
+    background: linear-gradient(to right, #9f6ee6, #61c6cd);
+  }
   
   .header {
     background-color: $app-primary-color;

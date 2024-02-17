@@ -1,12 +1,15 @@
 import brandingIcon from '../../styles/components/images/branding.png';
 import gasReductionIcon from '../../styles/components/images/Gasreduction.png';
 import userTrustIcon from '../../styles/components/images/user trust.png';
+import logo from '../../styles/components/images/logo adressforge.png';
 
 function Landing() {
     return (
       <div className="app">
-        <div className="gb">
+        <div className="bg">
         <header className="header">
+            <div className="logo_container">
+            <img src={logo} alt="Our Logo" className="logo" /></div>
           <h1>AdressForge</h1>
           <button className="wallet-button">Connect wallet</button>
         </header>
