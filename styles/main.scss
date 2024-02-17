@@ -1,1 +1,98 @@
 @import "components/normalize";
+
+$app-primary-color: #7c3aed;
+$app-secondary-color: #a855f7;
+$app-light-color: #e0e7ff;
+$app-dark-color: #4c1d95;
+$app-white-color: #ffffff;
+
+// .bg{
+
+// }
+
+.app {
+  font-family: 'Open Sans', sans-serif;
+  
+  .header {
+    background-color: $app-primary-color;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      color: $app-white-color;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .wallet-button {
+      background-color: $app-white-color;
+      color: $app-primary-color;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background-color: $app-light-color;
+      }
+    }
+  }
+  
+  .main-content {
+    padding: 2rem;
+    h2 {
+      color: $app-white-color;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    p {
+      color: $app-secondary-color;
+      margin: 1rem 0;
+    }
+    .run-app-button {
+      background-color: $app-white-color;
+      color: $app-dark-color;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      .feature-box {
+        background-color: $app-dark-color;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        h3 {
+          color: $app-white-color;
+          font-size: 1.25rem;
+          margin: 0.5rem 0;
+        }
+        p {
+          color: $app-secondary-color;
+        }
+        .feature-icon {
+          margin-bottom: 1rem;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+  
+  .footer {
+    background-color: $app-dark-color;
+    color: $app-secondary-color;
+    text-align: center;
+    padding: 1rem;
+    span {
+      font-weight: bold;
+    }
+  }
+}

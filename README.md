@@ -38,7 +38,6 @@ XXX is a
 - <img src="https://intellipaat.com/mediaFiles/2019/02/Solidity-Logo.jpg" alt="Solidity Logo" height="35"> [Solidity](https://github.com/ethereum/solidity) - Solidity is an object-oriented, high-level language for implementing smart contracts on various blockchain platforms.
 
 
-
 ## Libraries
 
 - [openzeppelin](https://www.openzeppelin.com/contracts) - Library for secure smart contract development.
