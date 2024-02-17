@@ -1,9 +1,20 @@
+import { useConnect } from 'wagmi';
 import brandingIcon from '../../styles/components/images/branding.png';
 import gasReductionIcon from '../../styles/components/images/Gasreduction.png';
 import userTrustIcon from '../../styles/components/images/user trust.png';
 import logo from '../../styles/components/images/logo adressforge.png';
 
 function Landing() {
+  const { connectors, connect, error } = useConnect();
+
+  const handleConnect = async () => {
+    // Assuming we're using the first available connector for simplicity
+    // You might want to give the user a choice if multiple connectors are available
+    const connector = connectors[0];
+    if (connector) {
+      await connect({ connector });
+    }
+  };
     return (
       <div className="app">
         <div className="bg">
@@ -11,7 +22,7 @@ function Landing() {
             <div className="logo_container">
             <img src={logo} alt="Our Logo" className="logo" /></div>
           <h1 className="app_title">AdressForge</h1>
-          <button className="wallet-button">Connect wallet</button>
+          <button className="wallet-button" onClick={handleConnect}>Connect wallet</button>
         </header>
         
         <main className="main-content">
@@ -20,7 +31,7 @@ function Landing() {
           <p>Turn random string into customizable<br />address utilizing Golem Network</p>
           </div>
           <div className="btnbox">
-            <button className="run-app-button">RUN THE APP</button>
+            <button className="run-app-button" onClick={handleConnect}>RUN THE APP</button>
           </div>
           <div className="features">
             <FeatureBox 
