@@ -10,7 +10,7 @@ function Landing() {
         <header className="header">
             <div className="logo_container">
             <img src={logo} alt="Our Logo" className="logo" /></div>
-          <h1>AdressForge</h1>
+          <h1 className="app_title">AdressForge</h1>
           <button className="wallet-button">Connect wallet</button>
         </header>
         

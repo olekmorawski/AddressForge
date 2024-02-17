@@ -1,12 +1,18 @@
 @import "components/normalize";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Trade+Winds&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+$font-base: "Trade Wind", sans-serif;
+$font-alt: "Inter", serif;
 
 $app-primary-color: #7c3aed;
 $app-secondary-color: #a855f7;
 $app-light-color: #e0e7ff;
-$app-dark-color: #4c1d95;
+$app-dark-color: #431a9f;
 $app-white-color: #ffffff;
 
 // 9f6ee6 - 61c6cd
+// 431a9f
 
 .app {
   font-family: 'Open Sans', sans-serif;
@@ -18,17 +24,35 @@ $app-white-color: #ffffff;
   }
   
   .header {
-    background-color: $app-primary-color;
-    padding: 1rem;
+    background-color: $app-dark-color;
+    padding: 0.5rem 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
+    top: 0;
+    z-index: 42;
+    position: sticky;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid white;
     h1 {
       color: $app-white-color;
       font-size: 2rem;
       font-weight: 700;
     }
+    .logo_container{
+      display: flex;
+      align-items: center;
+      max-height: 112px;
+      max-width: 105;
+    }
+    .app_title{
+      margin-left: 0.5rem; // Add some space between the logo and the title
+      color: $app-white-color;
+      font-size: 1.5rem; // Adjusted font size to make the navbar thinner
+      font-weight: 700;
+    }
     .wallet-button {
+      margin-left: auto;
       background-color: $app-white-color;
       color: $app-primary-color;
       padding: 0.5rem 1rem;
