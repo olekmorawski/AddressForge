@@ -1,29 +1,43 @@
-import { useConnect } from 'wagmi';
+import Header from '../components/Header';
+import { useState } from 'react';
+import { useConnect, useAccount, useDisconnect } from 'wagmi';
 import brandingIcon from '../../styles/components/images/branding.png';
 import gasReductionIcon from '../../styles/components/images/Gasreduction.png';
 import userTrustIcon from '../../styles/components/images/user trust.png';
-import logo from '../../styles/components/images/logo adressforge.png';
 
 function Landing() {
-  const { connectors, connect, error } = useConnect();
+  const { connect, connectors } = useConnect();
+  const { disconnect } = useDisconnect();
+  const account = useAccount();
+  const [connectionError, setConnectionError] = useState<string | null>(null);
 
   const handleConnect = async () => {
-    // Assuming we're using the first available connector for simplicity
-    // You might want to give the user a choice if multiple connectors are available
-    const connector = connectors[0];
-    if (connector) {
-      await connect({ connector });
+    setConnectionError(null);
+    try {
+      if (connectors.length > 0) {
+        await connect({ connector: connectors[0] });
+      } else {
+        setConnectionError('No connectors available');
+      }
+    } catch (error: any) {
+      setConnectionError(error.message);
     }
   };
+
+  const handleDisconnect = async () => {
+    await disconnect();
+    setConnectionError(null); // Reset any previous error
+  };
+
+  // Determine the loading state based on the account status
+  const isLoading = account.status === 'connecting' || account.status === 'reconnecting';
+
+
+  // Determine the loading state based on the status
     return (
       <div className="app">
         <div className="bg">
-        <header className="header">
-            <div className="logo_container">
-            <img src={logo} alt="Our Logo" className="logo" /></div>
-          <h1 className="app_title">AdressForge</h1>
-          <button className="wallet-button" onClick={handleConnect}>Connect wallet</button>
-        </header>
+          <Header />
         
         <main className="main-content">
           <div className="txt">
@@ -31,7 +45,7 @@ function Landing() {
           <p>Turn random string into customizable<br />address utilizing Golem Network</p>
           </div>
           <div className="btnbox">
-            <button className="run-app-button" onClick={handleConnect}>RUN THE APP</button>
+            <button className="run-app-button" onClick={handleConnect} disabled={isLoading}>RUN THE APP</button>
           </div>
           <div className="features">
             <FeatureBox 
@@ -56,6 +70,7 @@ function Landing() {
           Powered by <span>golem</span>
         </footer>
         </div>
+        {connectionError && <div>Error: {connectionError}</div>}
       </div>
     );
   }
