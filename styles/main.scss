@@ -163,18 +163,16 @@ $app-white-color: #ffffff;
     }
   }
 
-  $app-bg: linear-gradient(90deg, rgba(165, 94, 234, 1) 0%, rgba(130, 94, 234, 1) 100%);
-$font-color: #4A5568;
 $btn-bg: #6B46C1;
 $btn-bg-hover: #553C9A;
 $input-border-color: #CBD5E0;
 
-.app {
+.main {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: $app-bg;
+  background: linear-gradient(to right, #9f6ee6, #61c6cd);
 }
 
 .form-container {
@@ -182,8 +180,8 @@ $input-border-color: #CBD5E0;
   margin: 2rem;
 }
 
-.form-box, .info-box {
-  background: white;
+.form-box {
+  background: #ffffff;
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
@@ -193,7 +191,7 @@ $input-border-color: #CBD5E0;
 
 .form-box {
   h2 {
-    color: $font-color;
+    color: black;
     margin-bottom: 1rem;
   }
 
@@ -205,7 +203,7 @@ $input-border-color: #CBD5E0;
     }
 
     label {
-      color: $font-color;
+      color: black;
       font-weight: bold;
     }
   }
@@ -234,8 +232,45 @@ $input-border-color: #CBD5E0;
 }
 
 .info-box {
+  max-width: 489px;
+  max-height: 346px;
+  background: $app-dark-color;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
+  margin: 1rem;
   p {
-    color: $font-color;
+    font-family: $font-alt;
+    color: white;
+    font-size: 16px;
     margin-bottom: 1rem;
+  }
+}
+
+.infocontainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); // Adjust the box-shadow to match your design
+  font-family: 'Arial', sans-serif; // Use the font of your choice
+
+  .inner-div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    p {
+      margin: 0;
+      padding: 5px 0;
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

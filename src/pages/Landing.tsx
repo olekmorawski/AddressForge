@@ -32,7 +32,6 @@ function Landing() {
   // Determine the loading state based on the account status
   const isLoading = account.status === 'connecting' || account.status === 'reconnecting';
 
-
   // Determine the loading state based on the status
     return (
       <div className="app">
@@ -43,6 +42,7 @@ function Landing() {
             handleConnect={handleConnect}
             handleDisconnect={handleDisconnect}
           />
+
         <main className="main-content">
           <div className="txt">
             <h2>Create unique contract address<br />on Ethereum</h2>

@@ -1,6 +1,37 @@
+import { useAccount, useConnect, useDisconnect } from "wagmi";
+import Header from "../components/Header";
+import { useState } from "react";
+
 function Main() {
+    const { connect, connectors } = useConnect();
+  const { disconnect } = useDisconnect();
+  const account = useAccount();
+  const [connectionError, setConnectionError] = useState<string | null>(null)
+
+  const handleConnect = async () => {
+    setConnectionError(null);
+    try {
+      if (connectors.length > 0) {
+        await connect({ connector: connectors[0] });
+      } else {
+        setConnectionError('No connectors available');
+      }
+    } catch (error: any) {
+      setConnectionError(error.message);
+    }
+  };
+
+  const handleDisconnect = async () => {
+    await disconnect();
+    setConnectionError(null); // Reset any previous error
+  };
+
+  const isLoading = account.status === 'connecting' || account.status === 'reconnecting';
+
   return (
-    <div className="app">
+    
+    <div className="main">
+    <Header account={account} isLoading={isLoading} handleConnect={handleConnect} handleDisconnect={handleDisconnect}/>
       <div className="form-container">
         <div className="form-box">
           <h2>Choose address creation purpose</h2>
@@ -22,10 +53,23 @@ function Main() {
             <label htmlFor="suffix">suffix</label>
           </div>
           <input type="text" placeholder="Enter contract deployer address" />
-          <input type="text" value="0x0202e02" disabled />
-          <input type="text" placeholder="000..." disabled />
+          <div className="infocontainer">
+            <div className="inner-div">
+            <p>Your address:</p>
+            <p>0x0202e02</p>
+            </div>
+            <div className="inner-div">
+            <p>Estimated gas:</p>
+            <p>000...</p>
+        </div>
+    </div>
           <button>Forge your address</button>
-          <input type="text" value="0x0202e02" disabled />
+          <div className="infocontainer">
+            <div className="inner-div">
+            <p>Recieved Salt</p>
+            <p>0x0202e02</p> 
+            </div>
+          </div>
         </div>
         <div className="info-box">
           <p>Please note that the string address always starts with 0x. The rest of address contains 40 characters (20 bytes). You can edit maximum 20 characters in address.</p>
@@ -35,6 +79,7 @@ function Main() {
           <p>The gas will be charged from your connected wallet.</p>
         </div>
       </div>
+      {connectionError && <div>Error: {connectionError}</div>}
     </div>
   );
 }
