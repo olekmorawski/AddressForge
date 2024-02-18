@@ -101,15 +101,15 @@ function Main() {
             <p>0x0202e02</p>
             </div>
             <div className="inner-div">
-            <p>Estimated gas:</p>
+            <p>Difficulty:</p>
             <p>000...</p>
         </div>
     </div>
           <button>Forge your address</button>
           <div className="infocontainer">
             <div className="inner-div">
-            <p>Recieved CREATE3 Salt</p>
-            <p></p> 
+            <p>Recieved CREATE3 salt:</p>
+            <p>...</p> 
             </div>
           </div>
         </div>
