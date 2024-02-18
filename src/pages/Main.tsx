@@ -3,10 +3,13 @@ import logo from '../../styles/components/images/logo adressforge.png';
 import { useState } from "react";
 
 function Main() {
-    const { connect, connectors } = useConnect();
+  const [gasReductionLevel, setGasReductionLevel] = useState(1);
+  const { connect, connectors } = useConnect();
   const { disconnect } = useDisconnect();
   const account = useAccount();
-  const [connectionError, setConnectionError] = useState<string | null>(null)
+  const [connectionError, setConnectionError] = useState<string | null>(null);
+  const [addressCreationPurpose, setAddressCreationPurpose] = useState('editableAddress');
+
 
   const handleConnect = async () => {
     setConnectionError(null);
@@ -28,6 +31,15 @@ function Main() {
 
   const isLoading = account.status === 'connecting' || account.status === 'reconnecting';
 
+  const increment = () => {
+    setGasReductionLevel((prev) => (prev < 20 ? prev + 1 : prev));
+  };
+  
+  const decrement = () => {
+    setGasReductionLevel((prev) => (prev > 0 ? prev - 1 : prev));
+    
+  };
+
   return (
     
     <div className="main">
@@ -48,14 +60,30 @@ function Main() {
         <div className="form-box">
           <h2>Choose address creation purpose</h2>
           <div className="radio-group">
-            <input type="radio" id="editableAddress" name="addressType" defaultChecked />
+            <input type="radio" id="editableAddress" name="addressType" value="editableAddress" onChange={(e) => setAddressCreationPurpose(e.target.value)} defaultChecked />
             <label htmlFor="editableAddress">Editable address</label>
           </div>
           <div className="radio-group">
-            <input type="radio" id="gasReduction" name="addressType" />
+            <input type="radio" id="gasReduction" name="addressType" value="gasReduction" onChange={(e) => setAddressCreationPurpose(e.target.value)} />
             <label htmlFor="gasReduction">Gas reduction</label>
           </div>
           <input type="text" placeholder="0x... Enter your desired address" />
+          {addressCreationPurpose === 'gasReduction' && (
+
+          <>
+      <label htmlFor="gasReduction" className="input-label">Choose level of gas reduction</label>
+      <div className="gas-reduction">
+        <button className="gas-reduction-btn" onClick={decrement}>-</button>
+        <input
+          type="text"
+          value={gasReductionLevel}
+          readOnly
+          className="gas-reduction-input"
+        />
+        <button className="gas-reduction-btn" onClick={increment}>+</button>
+      </div>
+      </>
+        )}
           <div className="radio-group">
             <input type="radio" id="prefix" name="editablePart" defaultChecked />
             <label htmlFor="prefix">prefix</label>

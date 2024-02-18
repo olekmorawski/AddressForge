@@ -11,8 +11,9 @@ $app-light-color: #e0e7ff;
 $app-dark-color: #431a9f;
 $app-white-color: #ffffff;
 
-.app {
+* {
   font-family: $font-alt;
+}
 
   .bg {
     position: relative;
@@ -67,7 +68,6 @@ $app-white-color: #ffffff;
       }
     }
   }
-}
 
   
 .main-content {
@@ -170,7 +170,7 @@ $input-border-color: #CBD5E0;
 .main {
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(to right, #9f6ee6, #61c6cd);
 }
 
@@ -320,4 +320,37 @@ $input-border-color: #CBD5E0;
       background-color: $app-light-color;
     }
   }
+}
+
+.gas-reduction {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-bottom:20px;
+}
+
+.gas-reduction-label {
+  margin-right: 10px;
+}
+
+.gas-reduction-btn {
+  border: none;
+  background-color: #5552FF;
+  color: white;
+  margin:6px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gas-reduction-input {
+  text-align: center;
+  width: 40px;
+  height: 31px;
+  margin: 0;
+  font-size: 14px;
+  border: 1px solid #000; /* Ustawia obramowanie o grubości 1px i kolorze czarnym */
+  border-radius: 4px; 
 }
