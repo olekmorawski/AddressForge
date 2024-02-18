@@ -16,7 +16,7 @@ $app-white-color: #ffffff;
 
   .bg {
     position: relative;
-    width: 100vw;
+    width: 100%;
     background: linear-gradient(to right, #9f6ee6, #61c6cd);
   }
 
@@ -168,7 +168,6 @@ $btn-bg-hover: #553C9A;
 $input-border-color: #CBD5E0;
 
 .main {
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -271,6 +270,54 @@ $input-border-color: #CBD5E0;
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+}
+
+.header1 {
+  background-color: $app-dark-color;
+  padding: 0.5rem 1rem; // Reduced padding to make the header less tall
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  top: 0;
+  z-index: 42;
+  position: sticky;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid white;
+
+  .logo_container1 {
+    display: flex;
+    align-items: center;
+    max-height: 71px; // You can adjust this if the header is still too tall
+    max-width: 105px;
+    img{
+      max-width: 60px;
+      max-height: 60px;
+    }
+  }
+
+  .app_title1 {
+    font-family: $font-base; // Apply Trade Winds font to the app title
+    margin-left: 0.5rem; // Space between the logo and the title
+    color: $app-white-color;
+    font-size: 3rem; // You can adjust this if the header is still too tall
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .wallet-button1 {
+    margin-left: auto;
+    background-color: white;
+    color: black;
+    padding: 15px 35px;
+    margin-right: 25px;
+    border: 1px solid black; // Thin black border
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+      background-color: $app-light-color;
     }
   }
 }

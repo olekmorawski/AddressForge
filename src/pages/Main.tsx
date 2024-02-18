@@ -1,5 +1,5 @@
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import Header from "../components/Header";
+import logo from '../../styles/components/images/logo adressforge.png';
 import { useState } from "react";
 
 function Main() {
@@ -31,7 +31,19 @@ function Main() {
   return (
     
     <div className="main">
-    <Header account={account} isLoading={isLoading} handleConnect={handleConnect} handleDisconnect={handleDisconnect}/>
+      <header className="header1">
+        <div className="logo_container1">
+          <img src={logo} alt="Our Logo" className="logo" />
+        </div>
+        <h1 className="app_title1">AddressForge</h1>
+        {account.status === 'connected' ? (
+          <button className="wallet-button1" onClick={handleDisconnect}>Disconnect</button>
+        ) : (
+          <button className="wallet-button1" onClick={handleConnect} disabled={isLoading}>
+            Connect wallet
+          </button>
+        )}
+      </header>
       <div className="form-container">
         <div className="form-box">
           <h2>Choose address creation purpose</h2>
