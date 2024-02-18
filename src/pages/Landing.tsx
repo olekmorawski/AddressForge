@@ -46,7 +46,7 @@ function Landing() {
         <main className="main-content">
           <div className="txt">
             <h2>Create unique contract address<br />on Ethereum</h2>
-          <p>Turn random string into customizable<br />address utilizing Golem Network</p>
+          <p>Turn random string into customizable<br />address utilizing CREATE3 on Golem Network</p>
           </div>
           <div className="btnbox">
             <button className="run-app-button" onClick={handleConnect} disabled={isLoading}>RUN THE APP</button>
