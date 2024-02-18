@@ -1,0 +1,11 @@
+{
+    "name": "AddressForge",
+    "displayName": "<Address Forge",
+    "methods": [], 
+    "version": "1.0.0-alpha", 
+    "url": "<URL>", 
+    "description": "<description>",
+    "icon": "<link to image>", 
+    "location": "sidePanel",
+    "documentation":"<URL>"
+}
