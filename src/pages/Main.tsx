@@ -108,8 +108,8 @@ function Main() {
           <button>Forge your address</button>
           <div className="infocontainer">
             <div className="inner-div">
-            <p>Recieved Salt</p>
-            <p>0x0202e02</p> 
+            <p>Recieved CREATE3 Salt</p>
+            <p></p> 
             </div>
           </div>
         </div>

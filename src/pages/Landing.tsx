@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useConnect, useAccount, useDisconnect } from 'wagmi';
 import brandingIcon from '../../styles/components/images/branding.png';
@@ -10,6 +11,8 @@ function Landing() {
   const { disconnect } = useDisconnect();
   const account = useAccount();
   const [connectionError, setConnectionError] = useState<string | null>(null);
+  let navigate = useNavigate();
+
 
   const handleConnect = async () => {
     setConnectionError(null);
@@ -27,6 +30,10 @@ function Landing() {
   const handleDisconnect = async () => {
     await disconnect();
     setConnectionError(null); // Reset any previous error
+  };
+
+  const handlegotoapp = () => {
+    navigate("/app");
   };
 
   // Determine the loading state based on the account status
@@ -49,7 +56,7 @@ function Landing() {
           <p>Turn random string into customizable<br />address utilizing CREATE3 on Golem Network</p>
           </div>
           <div className="btnbox">
-            <button className="run-app-button" onClick={handleConnect} disabled={isLoading}>RUN THE APP</button>
+            <button className="run-app-button" onClick={handlegotoapp} disabled={isLoading}>RUN THE APP</button>
           </div>
           <div className="features">
             <FeatureBox 
