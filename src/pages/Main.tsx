@@ -1,6 +1,6 @@
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 import logo from '../../styles/components/images/logo adressforge.png';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Main() {
   const [gasReductionLevel, setGasReductionLevel] = useState(1);
@@ -9,7 +9,7 @@ function Main() {
   const account = useAccount();
   const [connectionError, setConnectionError] = useState<string | null>(null);
   const [addressCreationPurpose, setAddressCreationPurpose] = useState('editableAddress');
-
+  const [walletAddress, setWalletAddress] = useState(''); // State to hold the wallet address
 
   const handleConnect = async () => {
     setConnectionError(null);
@@ -39,6 +39,15 @@ function Main() {
     setGasReductionLevel((prev) => (prev > 0 ? prev - 1 : prev));
     
   };
+
+  useEffect(() => {
+    // Update the walletAddress state with the connected wallet address
+    if (account.status === 'connected' && account.address) {
+      setWalletAddress(account.address);
+    } else {
+      setWalletAddress(''); // Reset if disconnected or not connected
+    }
+  }, [account.status, account.address]); 
 
   return (
     <div className="main">
@@ -94,7 +103,12 @@ function Main() {
             </div>
           </>
         )}
-          <input type="text" placeholder="Enter contract deployer address" />
+              <input
+        type="text"
+        value={walletAddress} // Use walletAddress as the value of the input
+        onChange={(e) => setWalletAddress(e.target.value)} // Update state on change to allow editing
+        placeholder="Enter contract deployer address"
+      />
           <div className="infocontainer">
             <div className="inner-div">
             <p>Your address:</p>
