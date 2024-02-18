@@ -1,29 +1,25 @@
 # Sprint Mint Marketplace
 
-![Logo](/styles/images/logo4git.png)
+<img src="http://zkgreeter.j.pl/AddresForgeLogo-removebg-preview.png" alt="AddresForge logo">
 
-Welcome to XXX, your 
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Frontend Technologies](#frontend-technologies)
-- [Backend Technologies](#backend-technologies)
-- [Libraries](#libraries)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-XXX is a 
+AddressForge is a Web App that lets you create Ethereum smart contracts at specific addresses with leading zeros or custom patterns. This can lower your gas costs or improve your address aesthetics.
 
 ## Features
 
-- **User-Friendly Interface**: Easy navigation for an enhanced user experience.
+- User-friendly interface that is easy to use right away.
+- Optimized to find the desired address with minimal effort and time.
+- Uses Golem Network, a decentralized platform that provides computing power for finding the specific addresses you want.
+
+## How to use
+
+To use AddressForge, you need to:
+
+- Activate and commect plug-in and select whether you want to reduce gas costs or edit the address of your contract.
+- Set the number of leading zeros or the custom pattern (with '0x' prefix) you want in your contract address, up to 20 hexadecimals only.
+- Enter the address of the deployer account that will create the contract.
+- Connected wallet will be charged for the transaction fees and the Golem Network fees. You will need to have some GLM tokens in your wallet to use the Golem Network service and native token of blochkchain on witch You deploy contract.
+- Start the process of finding and deploying your contract. AddressForge will use the Golem Network to generate and test many addresses until it finds one that matches your criteria. It will then deploy the contract to that address and show you the result. You can check and use your contract on Ethereum.
+
 
 ## Frontend Technologies
 
