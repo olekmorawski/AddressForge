@@ -1,5 +1,5 @@
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import logo from '../../styles/components/images/logo adressforge.png';
+import logo from '../../styles/images/logoIcon.png';
 import { useState, useEffect } from "react";
 
 function Main() {
@@ -9,7 +9,7 @@ function Main() {
   const account = useAccount();
   const [connectionError, setConnectionError] = useState<string | null>(null);
   const [addressCreationPurpose, setAddressCreationPurpose] = useState('editableAddress');
-  const [walletAddress, setWalletAddress] = useState(''); // State to hold the wallet address
+  const [walletAddress, setWalletAddress] = useState('');
 
   const handleConnect = async () => {
     setConnectionError(null);
@@ -26,7 +26,7 @@ function Main() {
 
   const handleDisconnect = async () => {
     await disconnect();
-    setConnectionError(null); // Reset any previous error
+    setConnectionError(null);
   };
 
   const isLoading = account.status === 'connecting' || account.status === 'reconnecting';
@@ -41,11 +41,10 @@ function Main() {
   };
 
   useEffect(() => {
-    // Update the walletAddress state with the connected wallet address
     if (account.status === 'connected' && account.address) {
       setWalletAddress(account.address);
     } else {
-      setWalletAddress(''); // Reset if disconnected or not connected
+      setWalletAddress('');
     }
   }, [account.status, account.address]); 
 

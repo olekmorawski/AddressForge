@@ -1,10 +1,11 @@
-import Header from '../components/Header';
+import Nav from "../components/Nav";
+import FeatureBox from "../components/FeatureBox";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useConnect, useAccount, useDisconnect } from 'wagmi';
-import brandingIcon from '../../styles/components/images/branding.png';
-import gasReductionIcon from '../../styles/components/images/Gasreduction.png';
-import userTrustIcon from '../../styles/components/images/user trust.png';
+import brandingIcon from "../../styles/images/brandingIcon.png";
+import gasReductionIcon from "../../styles/images/gassReductionIcon.png";
+import userTrustIcon from "../../styles/images/userTrustIcon.png";
 
 function Landing() {
   const { connect, connectors } = useConnect();
@@ -41,60 +42,51 @@ function Landing() {
 
   // Determine the loading state based on the status
     return (
-      <div className="app">
-        <div className="bg">
-           <Header
-            account={account}
-            isLoading={isLoading}
-            handleConnect={handleConnect}
-            handleDisconnect={handleDisconnect}
+    <div className="bg">
+      <Nav 
+                  account={account}
+                  isLoading={isLoading}
+                  handleConnect={handleConnect}
+                  handleDisconnect={handleDisconnect}/>
+      <main>
+        <div className="text">
+          <h2>
+            Create unique contract address
+            <br />
+            on Ethereum
+          </h2>
+          <p>
+            Turn random string into customizable
+            <br />
+            address utilizing CREATE3 on Golem Network
+          </p>
+        </div>
+        <div className="box_btn">
+          <button className="run_btn" onClick={handlegotoapp} disabled={isLoading}>RUN THE APP</button>
+        </div>
+        <div className="features">
+          <FeatureBox
+            title="Branding"
+            description="Enhance brand recognition by incorporating identifiable patterns or characters, making them more memorable and trustworthy to users."
+            srcIcon={brandingIcon}
           />
-
-        <main className="main-content">
-          <div className="txt">
-            <h2>Create unique contract address<br />on Ethereum</h2>
-          <p>Turn random string into customizable<br />address utilizing CREATE3 on Golem Network</p>
-          </div>
-          <div className="btnbox">
-            <button className="run-app-button" onClick={handlegotoapp} disabled={isLoading}>RUN THE APP</button>
-          </div>
-          <div className="features">
-            <FeatureBox 
-              title="Branding"
-              description="Enhance brand recognition by incorporating identifiable patterns or characters, making them more memorable and trustworthy to users."
-              iconUrl={brandingIcon}
-              />
-            <FeatureBox 
-              title="Gas reduction"
-              description="Predictable addresses allow for interactions with contracts before they're deployed, potentially reducing gas costs associated with contract deployment and interaction."
-              iconUrl={gasReductionIcon}
-              />
-            <FeatureBox 
-              title="User trust"
-              description="Enhance user trust by incorporating identifiable patterns or characters, making them more memorable and trustworthy to users."
-              iconUrl={userTrustIcon}
-              />
-          </div>
-        </main>
-        
-        <footer className="footer">
-          Powered by <span>golem</span>
-        </footer>
+          <FeatureBox
+            title="Gas reduction"
+            description="Predictable addresses allow for interactions with contracts before they're deployed, potentially reducing gas costs associated with contract deployment and interaction."
+            srcIcon={gasReductionIcon}
+          />
+          <FeatureBox
+            title="User trust"
+            description="Enhance user trust by incorporating identifiable patterns or characters, making them more memorable and trustworthy to users."
+            srcIcon={userTrustIcon}
+          />
         </div>
+      </main>
+      <footer className="footer">
+        Powered by <span>golem</span>
         {connectionError && <div>Error: {connectionError}</div>}
-      </div>
-    );
-  }
-  
-  function FeatureBox({ title, description, iconUrl }: { title: string, description: string, iconUrl: string }) {
-    return (
-      <div className="feature-box">
-        <div className="feature-icon">
-          <img src={iconUrl} alt={`${title} icon`} />
-        </div>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
+      </footer>
+    </div>
     );
   }
 
