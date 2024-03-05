@@ -27,7 +27,4 @@ interface NavProps {
     );
   };
 
-
-
-
 export default Nav;
