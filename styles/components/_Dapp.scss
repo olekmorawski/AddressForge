@@ -1,0 +1,149 @@
+$btn-bg: #6b46c1;
+$btn-bg-hover: #553c9a;
+$input-border-color: #cbd5e0;
+
+.main {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: linear-gradient(to right, #9f6ee6, #61c6cd);
+}
+
+.form-container {
+  display: flex;
+  margin: 2rem;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 1rem;
+}
+
+.form-box {
+  h2 {
+    color: black;
+    margin-bottom: 1rem;
+  }
+
+  .radio-group {
+    margin-bottom: 1rem;
+
+    input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    label {
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid $input-border-color;
+    border-radius: 0.375rem;
+    &:disabled {
+      background: #e2e8f0;
+    }
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background: $btn-bg;
+    color: white;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    &:hover {
+      background: $btn-bg-hover;
+    }
+  }
+}
+
+.info-box {
+  border: 1px solid white;
+  max-width: 489px;
+  max-height: 250px;
+  background: $app-dark-color;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  p {
+    font-family: $font-alt;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 1rem;
+  }
+}
+
+.infocontainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: $font-alt;
+
+  .inner-div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    p {
+      margin: 0;
+      padding: 5px 0;
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.gas-reduction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.gas-reduction-label {
+  margin-right: 10px;
+}
+
+.gas-reduction-btn {
+  border: none;
+  background-color: #5552ff;
+  color: white;
+  margin: 6px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gas-reduction-input {
+  text-align: center;
+  width: 40px;
+  height: 31px;
+  margin: 0;
+  font-size: 14px;
+  border: 1px solid #000;
+  border-radius: 4px;
+}

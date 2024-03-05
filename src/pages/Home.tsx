@@ -7,7 +7,7 @@ import brandingIcon from "../../styles/images/brandingIcon.png";
 import gasReductionIcon from "../../styles/images/gassReductionIcon.png";
 import userTrustIcon from "../../styles/images/userTrustIcon.png";
 
-function Landing() {
+function Home() {
   const { connect, connectors } = useConnect();
   const { disconnect } = useDisconnect();
   const account = useAccount();
@@ -33,8 +33,8 @@ function Landing() {
     setConnectionError(null); // Reset any previous error
   };
 
-  const handlegotoapp = () => {
-    navigate("/app");
+  const handleCTA = () => {
+    navigate("/dapp");
   };
 
   // Determine the loading state based on the account status
@@ -43,11 +43,7 @@ function Landing() {
   // Determine the loading state based on the status
     return (
     <div className="bg">
-      <Nav 
-                  account={account}
-                  isLoading={isLoading}
-                  handleConnect={handleConnect}
-                  handleDisconnect={handleDisconnect}/>
+      <Nav account={account} isLoading={isLoading} handleConnect={handleConnect} handleDisconnect={handleDisconnect}/>
       <main>
         <div className="text">
           <h2>
@@ -62,7 +58,7 @@ function Landing() {
           </p>
         </div>
         <div className="box_btn">
-          <button className="run_btn" onClick={handlegotoapp} disabled={isLoading}>RUN THE APP</button>
+          <button className="run_btn" onClick={handleCTA} disabled={isLoading}>RUN THE APP</button>
         </div>
         <div className="features">
           <FeatureBox
@@ -84,10 +80,10 @@ function Landing() {
       </main>
       <footer className="footer">
         Powered by <span>golem</span>
-        {connectionError && <div>Error: {connectionError}</div>}
       </footer>
+      {connectionError && <div>Error: {connectionError}</div>}
     </div>
     );
   }
 
-export default Landing;
+export default Home;

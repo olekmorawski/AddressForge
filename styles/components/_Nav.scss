@@ -1,0 +1,55 @@
+nav {
+  max-width: 100%;
+  display: flex;
+  max-height: 124px;
+  background-color: $app-dark-color;
+  top: 0;
+  z-index: 42;
+  position: sticky;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid white;
+  border-radius: 0px 0px 8px 8px;
+  .logo_container {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      text-decoration: none;
+      display: flex;
+      align-self: center;
+      img {
+        width: 105px;
+        height: 112px;
+        padding-bottom: 12px;
+        padding-left: 16px;
+      }
+      .title {
+        font-family: $font-base;
+        margin-left: 0.5rem;
+        color: $app-white-color;
+        font-size: 70px;
+        line-height: 112px;
+        font-weight: 500;
+        margin-top: 0;
+        padding-top: 8px;
+        margin-bottom: 0;
+      }
+    }
+    .wallet_btn {
+      background-color: white;
+      color: black;
+      margin: 32px;
+      padding: 15px 35px;
+      margin-right: 25px;
+      border: 1px solid black;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background-color: $app-light-color;
+      }
+    }
+  }
+}

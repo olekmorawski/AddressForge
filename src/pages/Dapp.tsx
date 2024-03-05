@@ -1,8 +1,8 @@
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import logo from '../../styles/images/logoIcon.png';
 import { useState, useEffect } from "react";
+import Nav from "../components/Nav";
 
-function Main() {
+function Dapp() {
   const [gasReductionLevel, setGasReductionLevel] = useState(1);
   const { connect, connectors } = useConnect();
   const { disconnect } = useDisconnect();
@@ -50,19 +50,7 @@ function Main() {
 
   return (
     <div className="main">
-      <header className="header1">
-        <div className="logo_container1">
-          <img src={logo} alt="Our Logo" className="logo" />
-        </div>
-        <h1 className="app_title1">AddressForge</h1>
-        {account.status === 'connected' ? (
-          <button className="wallet-button1" onClick={handleDisconnect}>Disconnect</button>
-        ) : (
-          <button className="wallet-button1" onClick={handleConnect} disabled={isLoading}>
-            Connect wallet
-          </button>
-        )}
-      </header>
+      <Nav account={account} isLoading={isLoading} handleConnect={handleConnect} handleDisconnect={handleDisconnect} />
       <div className="form-container">
       <div className="form-box">
         <h2>Choose address creation purpose</h2>
@@ -139,4 +127,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Dapp;

@@ -1,0 +1,89 @@
+.bg {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #9f6ee6, #61c6cd);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+  .text {
+    h2 {
+      color: $app-white-color;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      line-height: 42px;
+      font-size: 22px;
+      color: white;
+      margin-bottom: 2rem;
+    }
+  }
+  .box_btn {
+    align-self: flex-end;
+    margin-top: -56px;
+    .run_btn {
+      background-color: white;
+      color: black;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: bold;
+      border: 1px solid black;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-right: 100px;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 6px rgba(102, 51, 153, 0.5);
+      &:hover {
+        background-color: lighten($app-white-color, 5%);
+        box-shadow: 0 2px 3px rgba(102, 51, 153, 0.5);
+      }
+      &:active {
+        transform: translateY(2px);
+        box-shadow: 0 2px 3px rgba(102, 51, 153, 0.3);
+      }
+    }
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    .feature_box {
+      background-color: $app-dark-color;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid white;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 25%);
+      h3 {
+        color: $app-white-color;
+        font-size: 20px;
+        margin: 8px 0;
+      }
+      p {
+        color: white;
+      }
+      .feature_icon {
+        margin-bottom: 16px;
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+  .footer {
+    background-color: $app-dark-color;
+    color: $app-secondary-color;
+    text-align: center;
+    padding: 16px;
+    span {
+      font-weight: bold;
+    }
+  }
+}
