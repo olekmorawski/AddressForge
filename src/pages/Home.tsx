@@ -1,5 +1,6 @@
 import Nav from "../components/Nav";
 import FeatureBox from "../components/FeatureBox";
+import Footer from "../components/Footer";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useConnect, useAccount, useDisconnect } from 'wagmi';
@@ -30,7 +31,7 @@ function Home() {
 
   const handleDisconnect = async () => {
     await disconnect();
-    setConnectionError(null); // Reset any previous error
+    setConnectionError(null);
   };
 
   const handleCTA = () => {
@@ -44,44 +45,40 @@ function Home() {
     return (
     <div className="bg">
       <Nav account={account} isLoading={isLoading} handleConnect={handleConnect} handleDisconnect={handleDisconnect}/>
-      <main>
-        <div className="text">
-          <h2>
-            Create unique contract address
-            <br />
-            on Ethereum
-          </h2>
-          <p>
-            Turn random string into customizable
-            <br />
-            address utilizing CREATE3 on Golem Network
-          </p>
-        </div>
-        <div className="box_btn">
-          <button className="run_btn" onClick={handleCTA} disabled={isLoading}>RUN THE APP</button>
-        </div>
-        <div className="features">
-          <FeatureBox
-            title="Branding"
-            description="Enhance brand recognition by incorporating identifiable patterns or characters, making them more memorable and trustworthy to users."
-            srcIcon={brandingIcon}
-          />
-          <FeatureBox
-            title="Gas reduction"
-            description="Predictable addresses allow for interactions with contracts before they're deployed, potentially reducing gas costs associated with contract deployment and interaction."
-            srcIcon={gasReductionIcon}
-          />
-          <FeatureBox
-            title="User trust"
-            description="Enhance user trust by incorporating identifiable patterns or characters, making them more memorable and trustworthy to users."
-            srcIcon={userTrustIcon}
-          />
-        </div>
-      </main>
-      <footer className="footer">
-        Powered by <span>golem</span>
-      </footer>
-      {connectionError && <div>Error: {connectionError}</div>}
+      <div className="content_box">
+        <main>
+          <div className="header">
+            <div className="text">
+              <h2>Create unique contract address on Ethereum</h2>
+              <div className="p_btn">
+                <p>Turn random string into customizable address utilizing CREATE3 on Golem Network</p>
+                <div className="box_btn">
+                  <button className="run_btn" onClick={handleCTA} disabled={isLoading}>RUN THE APP</button>
+                </div>
+              </div> 
+            </div>
+          </div>
+          <div className="features">
+            <FeatureBox
+              title="Branding"
+              description="Enhance brand recognition by incorporating identifiable patterns or characters, making them more memorable and trustworthy to users."
+              srcIcon={brandingIcon}
+            />
+            <FeatureBox
+              title="Gas reduction"
+              description="Predictable addresses allow for interactions with contracts before they're deployed, potentially reducing gas costs associated with contract deployment and interaction."
+              srcIcon={gasReductionIcon}
+            />
+            <FeatureBox
+              title="User trust"
+              description="Enhance user trust by incorporating identifiable patterns or characters, making them more memorable and trustworthy to users."
+              srcIcon={userTrustIcon}
+            />
+          </div>
+        </main>
+        {connectionError && <div>Error: {connectionError}</div>}
+      </div>
+      <Footer />
     </div>
     );
   }

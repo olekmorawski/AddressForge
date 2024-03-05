@@ -49,8 +49,9 @@ function Dapp() {
   }, [account.status, account.address]); 
 
   return (
+    <div className="bg_dapp">
+     <Nav account={account} isLoading={isLoading} handleConnect={handleConnect} handleDisconnect={handleDisconnect} />
     <div className="main">
-      <Nav account={account} isLoading={isLoading} handleConnect={handleConnect} handleDisconnect={handleDisconnect} />
       <div className="form-container">
       <div className="form-box">
         <h2>Choose address creation purpose</h2>
@@ -123,6 +124,7 @@ function Dapp() {
         </div>
       </div>
       {connectionError && <div>Error: {connectionError}</div>}
+    </div>
     </div>
   );
 }

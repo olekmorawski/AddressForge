@@ -2,6 +2,14 @@
   width: 100vw;
   height: 100vh;
   background: linear-gradient(to right, #9f6ee6, #61c6cd);
+  display: flex;
+  flex-direction: column;
+}
+
+.content_box {
+  max-width: 1920px;
+  margin: 0 auto;
+  flex: 1;
 }
 
 main {
@@ -10,23 +18,37 @@ main {
   align-items: flex-start;
   padding: 32px;
   .text {
+    padding-left: 60px;
+    padding-right: 60px;
     h2 {
       color: $app-white-color;
-      font-size: 48px;
+      font-size: 80px;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
-    p {
-      line-height: 42px;
-      font-size: 22px;
-      color: white;
-      margin-bottom: 2rem;
+    .p_btn {
+      display: flex;
+      align-items: flex-start;
+      p {
+        line-height: 42px;
+        font-size: 22px;
+        color: white;
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   }
   .box_btn {
-    align-self: flex-end;
-    margin-top: -56px;
+    align-self: auto;
+    margin-left: 180px;
     .run_btn {
+      height: 111px;
+      width: 239px;
       background-color: white;
       color: black;
       padding: 16px 32px;
@@ -51,12 +73,13 @@ main {
   }
 
   .features {
+    margin-top: 180px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(3, 2fr);
+    gap: 60px;
     .feature_box {
       background-color: $app-dark-color;
-      padding: 16px;
+      padding: 32px;
       border-radius: 8px;
       border: 1px solid white;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 25%);
@@ -67,6 +90,7 @@ main {
       }
       p {
         color: white;
+        text-align: justify;
       }
       .feature_icon {
         margin-bottom: 16px;
@@ -75,15 +99,6 @@ main {
           height: 50px;
         }
       }
-    }
-  }
-  .footer {
-    background-color: $app-dark-color;
-    color: $app-secondary-color;
-    text-align: center;
-    padding: 16px;
-    span {
-      font-weight: bold;
     }
   }
 }
