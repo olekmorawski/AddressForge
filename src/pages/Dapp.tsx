@@ -1,36 +1,14 @@
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount } from "wagmi";
 import { useState, useEffect } from "react";
 import Nav from "../components/Nav";
 import Infobox from "../components/Infobox";
 
 function Dapp() {
   const [gasReductionLevel, setGasReductionLevel] = useState(1);
-  const { connect, connectors } = useConnect();
-  const { disconnect } = useDisconnect();
   const account = useAccount();
-  const [connectionError, setConnectionError] = useState<string | null>(null);
   const [addressCreationPurpose, setAddressCreationPurpose] = useState('editableAddress');
   const [walletAddress, setWalletAddress] = useState('');
 
-  const handleConnect = async () => {
-    setConnectionError(null);
-    try {
-      if (connectors.length > 0) {
-        await connect({ connector: connectors[0] });
-      } else {
-        setConnectionError('No connectors available');
-      }
-    } catch (error: any) {
-      setConnectionError(error.message);
-    }
-  };
-
-  const handleDisconnect = async () => {
-    await disconnect();
-    setConnectionError(null);
-  };
-
-  const isLoading = account.status === 'connecting' || account.status === 'reconnecting';
 
   const increment = () => {
     setGasReductionLevel((prev) => (prev < 20 ? prev + 1 : prev));
@@ -51,7 +29,7 @@ function Dapp() {
 
   return (
     <div className="bg_dapp">
-     <Nav account={account} isLoading={isLoading} handleConnect={handleConnect} handleDisconnect={handleDisconnect} />
+     <Nav/>
     <div className="main">
       <div className="form-container">
       <div className="form-box">
@@ -118,7 +96,6 @@ function Dapp() {
         </div>
         <Infobox />
       </div>
-      {connectionError && <div>Error: {connectionError}</div>}
     </div>
     </div>
   );
