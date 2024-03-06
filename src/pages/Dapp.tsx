@@ -1,102 +1,68 @@
 import { useAccount } from "wagmi";
 import { useState, useEffect } from "react";
 import Nav from "../components/Nav";
+import AddressCreationPurposeRadio from "../components/AddressCreationPurposeRadio";
+import EditableAddressForm from "../components/EditableAddressForm";
+import GasReductionForm from "../components/GasReductionForm";
+import WalletAddressInput from "../components/WalletAddressInput";
+import AddressInfo from "../components/AddressInfo";
+import CreateSaltInfo from "../components/CreateSaltInfo";
 import Infobox from "../components/Infobox";
 
 function Dapp() {
-  const [gasReductionLevel, setGasReductionLevel] = useState(1);
   const account = useAccount();
-  const [addressCreationPurpose, setAddressCreationPurpose] = useState('editableAddress');
-  const [walletAddress, setWalletAddress] = useState('');
-
-
-  const increment = () => {
-    setGasReductionLevel((prev) => (prev < 20 ? prev + 1 : prev));
-  };
-  
-  const decrement = () => {
-    setGasReductionLevel((prev) => (prev > 0 ? prev - 1 : prev));
-    
-  };
+  const [addressCreationPurpose, setAddressCreationPurpose] =
+    useState("editableAddress");
+  const [walletAddress, setWalletAddress] = useState("");
+  const [gasReductionLevel, setGasReductionLevel] = useState(1);
 
   useEffect(() => {
-    if (account.status === 'connected' && account.address) {
+    if (account.status === "connected" && account.address) {
       setWalletAddress(account.address);
     } else {
-      setWalletAddress('');
+      setWalletAddress("");
     }
-  }, [account.status, account.address]); 
+  }, [account.status, account.address]);
+
+  const handleGasReductionChange = (action: "increment" | "decrement") => {
+    if (action === "increment") {
+      setGasReductionLevel((prev) => (prev < 20 ? prev + 1 : prev));
+    } else {
+      setGasReductionLevel((prev) => (prev > 0 ? prev - 1 : prev));
+    }
+  };
 
   return (
     <div className="bg_dapp">
-     <Nav/>
-    <div className="main">
-      <div className="form-container">
-      <div className="form-box">
-        <h2>Choose address creation purpose</h2>
-        <div className="radio-group">
-          <input type="radio" id="editableAddress" name="addressType" value="editableAddress" onChange={(e) => setAddressCreationPurpose(e.target.value)} defaultChecked />
-          <label htmlFor="editableAddress">Editable address</label>
-        </div>
-        <div className="radio-group">
-          <input type="radio" id="gasReduction" name="addressType" value="gasReduction" onChange={(e) => setAddressCreationPurpose(e.target.value)} />
-          <label htmlFor="gasReduction">Gas reduction</label>
-        </div>
-        {addressCreationPurpose !== 'gasReduction' && (
-          <>
-            <input type="text" placeholder="0x... Enter your desired address" />
-            <div className="radio-group">
-              <input type="radio" id="prefix" name="editablePart" defaultChecked />
-              <label htmlFor="prefix">prefix</label>
-            </div>
-            <div className="radio-group">
-              <input type="radio" id="suffix" name="editablePart" />
-              <label htmlFor="suffix">suffix</label>
-            </div>
-          </>
-        )}
-        {addressCreationPurpose === 'gasReduction' && (
-          <>
-            <label htmlFor="gasReduction" className="input-label">Choose level of gas reduction</label>
-            <div className="gas-reduction">
-              <button className="gas-reduction-btn" onClick={decrement}>-</button>
-              <input
-                type="text"
-                value={gasReductionLevel}
-                readOnly
-                className="gas-reduction-input"
+      <Nav />
+      <div className="main">
+        <div className="form-container">
+          <div className="form-box">
+            <h2>Choose address creation purpose</h2>
+            <AddressCreationPurposeRadio
+              addressCreationPurpose={addressCreationPurpose}
+              setAddressCreationPurpose={setAddressCreationPurpose}
+            />
+            {addressCreationPurpose !== "gasReduction" && (
+              <EditableAddressForm />
+            )}
+            {addressCreationPurpose === "gasReduction" && (
+              <GasReductionForm
+                gasReductionLevel={gasReductionLevel}
+                handleGasReductionChange={handleGasReductionChange}
               />
-              <button className="gas-reduction-btn" onClick={increment}>+</button>
-            </div>
-          </>
-        )}
-              <input
-        type="text"
-        value={walletAddress} // Use walletAddress as the value of the input
-        onChange={(e) => setWalletAddress(e.target.value)} // Update state on change to allow editing
-        placeholder="Enter contract deployer address"
-      />
-          <div className="infocontainer">
-            <div className="inner-div">
-            <p>Your address:</p>
-            <p>0x0202e02</p>
-            </div>
-            <div className="inner-div">
-            <p>Difficulty:</p>
-            <p>000...</p>
-        </div>
-    </div>
-          <button>Forge your address</button>
-          <div className="infocontainer">
-            <div className="inner-div">
-            <p>Recieved CREATE3 salt:</p>
-            <p>...</p> 
-            </div>
+            )}
+            <WalletAddressInput
+              walletAddress={walletAddress}
+              setWalletAddress={setWalletAddress}
+            />
+            <AddressInfo />
+            <button>Forge your address</button>
+            <CreateSaltInfo />
           </div>
+          <Infobox />
         </div>
-        <Infobox />
       </div>
-    </div>
     </div>
   );
 }

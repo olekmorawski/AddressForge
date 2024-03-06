@@ -1,8 +1,8 @@
 function Footer() {
   return (
     <footer>
-    Powered by <span>golem</span>
-  </footer>
+      Powered by <span>golem</span>
+    </footer>
   );
 }
 

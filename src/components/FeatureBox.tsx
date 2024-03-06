@@ -1,4 +1,12 @@
-function FeatureBox({ title, description, srcIcon }: { title: string, description: string, srcIcon: string }) {
+function FeatureBox({
+  title,
+  description,
+  srcIcon,
+}: {
+  title: string;
+  description: string;
+  srcIcon: string;
+}) {
   return (
     <div className="feature_box">
       <div className="feature_icon">

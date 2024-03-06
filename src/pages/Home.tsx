@@ -1,7 +1,7 @@
 import Nav from "../components/Nav";
 import FeatureBox from "../components/FeatureBox";
 import Footer from "../components/Footer";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import brandingIcon from "../../styles/images/brandingIcon.png";
 import gasReductionIcon from "../../styles/images/gassReductionIcon.png";
 import userTrustIcon from "../../styles/images/userTrustIcon.png";
@@ -9,14 +9,11 @@ import userTrustIcon from "../../styles/images/userTrustIcon.png";
 function Home() {
   let navigate = useNavigate();
 
-
   const handleCTA = () => {
     navigate("/dapp");
   };
 
-
-  // Determine the loading state based on the status
-    return (
+  return (
     <div className="bg">
       <Nav />
       <div className="content_box">
@@ -25,11 +22,16 @@ function Home() {
             <div className="text">
               <h2>Create unique contract address on Ethereum</h2>
               <div className="p_btn">
-                <p>Turn random string into customizable address utilizing CREATE3 on Golem Network</p>
+                <p>
+                  Turn random string into customizable address utilizing CREATE3
+                  on Golem Network
+                </p>
                 <div className="box_btn">
-                  <button className="run_btn" onClick={handleCTA}>RUN THE APP</button>
+                  <button className="run_btn" onClick={handleCTA}>
+                    RUN THE APP
+                  </button>
                 </div>
-              </div> 
+              </div>
             </div>
           </div>
           <div className="features">
@@ -53,7 +55,7 @@ function Home() {
       </div>
       <Footer />
     </div>
-    );
-  }
+  );
+}
 
 export default Home;
