@@ -1,5 +1,4 @@
 nav {
-  max-width: 100%;
   display: flex;
   max-height: 124px;
   background-color: $app-dark-color;
@@ -28,7 +27,7 @@ nav {
       }
       .title {
         font-family: $font-base;
-        margin-left: 0.5rem;
+        margin-left: 8px;
         color: $app-white-color;
         font-size: 70px;
         line-height: 112px;
