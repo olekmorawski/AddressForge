@@ -1,6 +1,6 @@
 const EditableAddressForm = () => (
   <>
-    <input type="text" placeholder="0x... Enter your desired address" />
+    <input type="text" maxLength={42} placeholder="0x... Enter your desired address" />
     <div className="radio-group">
       <input type="radio" id="prefix" name="editablePart" defaultChecked />
       <label htmlFor="prefix">prefix</label>

@@ -8,6 +8,7 @@ import WalletAddressInput from "../components/WalletAddressInput";
 import AddressInfo from "../components/AddressInfo";
 import CreateSaltInfo from "../components/CreateSaltInfo";
 import Infobox from "../components/Infobox";
+import Footer from "../components/Footer";
 
 function Dapp() {
   const account = useAccount();
@@ -63,6 +64,7 @@ function Dapp() {
           <Infobox />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

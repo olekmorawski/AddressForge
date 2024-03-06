@@ -1,42 +1,47 @@
 .bg_dapp {
-  background: linear-gradient(to right, #9f6ee6, #61c6cd);
   width: 100vw;
   height: 100vh;
+  background: linear-gradient(to right, #9f6ee6, #61c6cd);
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
   justify-content: center;
   align-items: center;
-  height: 100%;
+  margin: 0 auto;
+  flex: 1;
+  max-width: 1200px;
 }
 
 .form-container {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
   margin: 32px;
 }
 
 .form-box {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: #E1D2F8;
   padding: 32px;
   border-radius: 8px;
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
   width: 100%;
+  max-width: 600px;
   margin: 16px;
-
   h2 {
     color: black;
     margin-bottom: 16px;
   }
-
   .radio-group {
+    display: flex;
+    align-items: center;
     margin-bottom: 16px;
-
     input[type="radio"] {
       margin-right: 8px;
     }
-
     label {
       color: black;
       font-weight: bold;
@@ -49,7 +54,7 @@
     margin-bottom: 16px;
     border: 1px solid #cbd5e0;
     border-radius: 6px;
-
+    box-sizing: border-box;
     &:disabled {
       background: #e2e8f0;
     }
@@ -72,14 +77,11 @@
 
 .info-box {
   border: 1px solid white;
-  max-width: 489px;
-  max-height: 250px;
   background: $app-dark-color;
   padding: 32px;
   border-radius: 8px;
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.1);
   margin: 16px;
-
   p {
     font-family: $font-alt;
     color: white;
@@ -97,12 +99,10 @@
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: $font-alt;
-
   .inner-div {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-
     p {
       margin: 0;
       padding: 5px 0;
@@ -111,7 +111,6 @@
         font-weight: bold;
       }
     }
-
     &:last-child {
       margin-bottom: 0;
     }
