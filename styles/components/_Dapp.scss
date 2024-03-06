@@ -1,6 +1,6 @@
 .bg_dapp {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to right, #9f6ee6, #61c6cd);
   display: flex;
   flex-direction: column;
