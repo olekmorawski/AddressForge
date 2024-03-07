@@ -15,6 +15,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
     a {
       text-decoration: none;
       display: flex;

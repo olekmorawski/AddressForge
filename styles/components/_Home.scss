@@ -1,5 +1,4 @@
 .bg {
-  width: 100vw;
   min-height: 100vh;
   background: linear-gradient(to right, #9f6ee6, #61c6cd);
   display: flex;
@@ -10,12 +9,13 @@
   max-width: 1920px;
   margin: 0 auto;
   flex: 1;
+  display: flex;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 32px;
   .text {
     padding-left: 60px;
