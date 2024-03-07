@@ -1,14 +1,13 @@
 .bg_dapp {
-  width: 100vw;
   min-height: 100vh;
   background: linear-gradient(to right, #9f6ee6, #61c6cd);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .main {
   justify-content: center;
-  align-items: center;
   margin: 0 auto;
   flex: 1;
   max-width: 1200px;
