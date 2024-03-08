@@ -34,7 +34,7 @@ function Dapp() {
   };
 
   return (
-    <div className="bg_dapp">
+    <div className="bg">
       <Nav />
       <div className="main">
         <div className="form-container">
@@ -58,7 +58,7 @@ function Dapp() {
               setWalletAddress={setWalletAddress}
             />
             <AddressInfo />
-            <button>Forge your address</button>
+            <button className="forge_btn"> 🛠️ Forge your adress 🛠️</button>
             <CreateSaltInfo />
           </div>
           <Infobox />

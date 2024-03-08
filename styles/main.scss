@@ -12,6 +12,13 @@ body {
   font-family: $font-alt;
 }
 
+.bg {
+  min-height: 100vh;
+  background: linear-gradient(to right, #9f6ee6, #61c6cd);
+  display: flex;
+  flex-direction: column;
+}
+
 @import "components/Nav";
 @import "components/Home";
 @import "components/Dapp";

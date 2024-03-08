@@ -1,15 +1,16 @@
 const GasReductionForm = ({
-    gasReductionLevel,
-    handleGasReductionChange,
-  }: {
-    gasReductionLevel: number;
-    handleGasReductionChange: (action: "increment" | "decrement") => void;
-  }) => (
-    <>
-      <label htmlFor="gasReduction" className="input-label">
-        Choose level of gas reduction
-      </label>
-      <div className="gas-reduction">
+  gasReductionLevel,
+  handleGasReductionChange,
+}: {
+  gasReductionLevel: number;
+  handleGasReductionChange: (action: "increment" | "decrement") => void;
+}) => (
+  <>
+    <label htmlFor="gasReduction" className="input-label">
+      Choose level of gas reduction
+    </label>
+    <div className="gas-reduction">
+      <div className="gas_reduction_wrapper">
         <button
           className="gas-reduction-btn"
           onClick={() => handleGasReductionChange("decrement")}
@@ -29,7 +30,8 @@ const GasReductionForm = ({
           +
         </button>
       </div>
-    </>
-  );
-  
-  export default GasReductionForm;
+    </div>
+  </>
+);
+
+export default GasReductionForm;
