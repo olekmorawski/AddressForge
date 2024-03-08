@@ -6,7 +6,7 @@ const GasReductionForm = ({
   handleGasReductionChange: (action: "increment" | "decrement") => void;
 }) => (
   <>
-    <label htmlFor="gasReduction" className="input-label">
+    <label htmlFor="gasReduction" className="input-label-gas">
       Choose level of gas reduction
     </label>
     <div className="gas-reduction">

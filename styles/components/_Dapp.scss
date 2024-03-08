@@ -39,7 +39,7 @@
     }
     label {
       color: #344054;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
       line-height: 20px;
     }
@@ -127,12 +127,26 @@
   }
 }
 
+.input-label {
+  color: #344054;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input-label-gas{
+  color: #344054;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
 .gas-reduction {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
   .gas_reduction_wrapper {
+    margin-top: 5px;
     display: flex;
     align-items: center;
   }
@@ -149,16 +163,11 @@
   }
   .gas-reduction-input {
     text-align: center;
-    width: 40px;
-    height: 40px;
+    width: 50px !important;
+    height: 50px;
     margin: 8px 10px;
     font-size: 18px;
     background-color: #f1f1f1;
+    box-sizing: border-box;
   }
-}
-
-.input-label {
-  color: #344054;
-  font-size: 14px;
-  font-weight: 500;
 }
