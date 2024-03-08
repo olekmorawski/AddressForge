@@ -34,7 +34,7 @@ To use AddressForge, you need to:
 ## Libraries
 
 - [axios](https://axios-http.com/) - Promise-based HTTP client for making API requests.
-- [wagmi](https://wagmi.sh) -
+- [wagmi](https://wagmi.sh) - High performance React Hooks library for Ethereum.
 
 ## Getting Started
 
